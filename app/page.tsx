@@ -3,14 +3,9 @@
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import WhatsAppFloat from "@/components/whatsapp-float"
-import Link from "next/link"
-import Image from "next/image"
 import {
   Gamepad2,
   Smartphone,
@@ -131,14 +126,7 @@ export default function HomePage() {
     },
   ]
 
-  const trustedCompanies = [
-    { name: "PlayerzPot", logo: "/plogo.jpg" },
-    { name: "Cherry Games", logo: "/clogo.png" },
-    { name: "Wolomi", logo: "/wlogo.webp" },
-    { name: "EduBharat", logo: "/elogo.webp" },
-    { name: "Makro Pro", logo: "/mlogo.webp" },
-    { name: "Trade2Help", logo: "/tlogo.png" },
-  ]
+  const trustedCompanies = ["Microsoft", "Google", "Amazon", "Meta", "Apple", "Netflix"]
 
   return (
     <div className="min-h-screen">
@@ -180,44 +168,18 @@ export default function HomePage() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg">
-                  Get a Quote
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-lg bg-white text-gray-900">
-                <DialogHeader>
-                  <DialogTitle>Get a Quote</DialogTitle>
-                </DialogHeader>
-                <form className="space-y-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                    <Input placeholder="Your name" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                    <Input type="email" placeholder="you@example.com" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Project details</label>
-                    <Textarea placeholder="Tell us about your project" rows={4} />
-                  </div>
-                  <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white">Submit</Button>
-                </form>
-              </DialogContent>
-            </Dialog>
-            <Link href="/services">
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 text-lg bg-transparent"
-              >
-                <Play className="mr-2 w-5 h-5" />
-                Our Services
-              </Button>
-            </Link>
+            <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg">
+              Get a Quote
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 text-lg bg-transparent"
+            >
+              <Play className="mr-2 w-5 h-5" />
+              Our Services
+            </Button>
           </motion.div>
         </div>
       </section>
@@ -245,19 +207,13 @@ export default function HomePage() {
           </motion.h2>
 
           <div className="relative overflow-hidden">
-            <div className="flex animate-scroll items-center">
+            <div className="flex animate-scroll">
               {[...trustedCompanies, ...trustedCompanies].map((company, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 mx-6 w-52 h-24 md:w-64 md:h-28 bg-white rounded-xl shadow-sm ring-1 ring-gray-100 flex items-center justify-center overflow-hidden px-6"
+                  className="flex-shrink-0 mx-8 w-32 h-16 bg-white rounded-lg shadow-md flex items-center justify-center"
                 >
-                  <Image
-                    src={company.logo}
-                    alt={`${company.name} logo`}
-                    width={200}
-                    height={80}
-                    className="h-16 md:h-20 w-auto object-contain mix-blend-multiply"
-                  />
+                  <span className="text-gray-600 font-medium">{company}</span>
                 </div>
               ))}
             </div>
@@ -459,21 +415,21 @@ export default function HomePage() {
             >
               <h2 className="text-4xl font-serif font-bold text-gray-900 mb-6">About TechSpire Solutions</h2>
               <p className="text-lg text-gray-600 mb-6">
-                Founded in 2025 by Vinay Verma, we are a technology company specializing in cutting-edge digital
-                solutions. Our team of expert developers and designers work tirelessly to bring your ideas to life.
+                Founded in 2020, we are a leading technology company specializing in cutting-edge digital solutions. Our
+                team of expert developers and designers work tirelessly to bring your ideas to life.
               </p>
               <div className="space-y-4 mb-8">
                 <div className="flex items-center space-x-3">
                   <CheckCircle className="w-6 h-6 text-green-500" />
-                  <span className="text-gray-700">50+ projects delivered</span>
+                  <span className="text-gray-700">4+ Years of Excellence</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <CheckCircle className="w-6 h-6 text-green-500" />
-                  <span className="text-gray-700">Founder: Vinay Verma</span>
+                  <span className="text-gray-700">100+ Successful Projects</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <CheckCircle className="w-6 h-6 text-green-500" />
-                  <span className="text-gray-700">Founded in 2025</span>
+                  <span className="text-gray-700">Expert Development Team</span>
                 </div>
               </div>
               <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
